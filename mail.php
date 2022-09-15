@@ -8,12 +8,12 @@
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 $name = $_POST['user_name'];
-$mail = $_POST['user_email'];
+$email = $_POST['user_email'];
 $phone = $_POST['user_phone'];
 
-$to = $mail;
+$to = $email;
 $subject = 'Заявка с сайта test-site-name';
-$message = 'Имя '.$name.'Почта '. $mail .' Телефон: '.$phone;
+$message = 'Имя '.$name.' Почта '. $email .' Телефон: '.$phone;
 
 // Отправка
 $success = mail($to, $subject, $message);
