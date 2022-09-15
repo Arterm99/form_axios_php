@@ -6,14 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Отпарвка формы без перезагрузки страницы</title>
 </head>
 <body>
     <div class="container">
         <h1>Отпарвка формы без перезагрузки страницы</h1>
-        <form class="form-data" method="post" action="/mail.php">
+        <form class="form-data" method="post" action="http://localhost/02_projects-js/04_%20Form+Ajax+JS+PHP/mail.php">
             <div class="form-group mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Имя</label>
                 <input type="name" name="user_name" class="form-control" id="exampleFormControlInput1" placeholder="Имя" required>
@@ -86,53 +86,53 @@
 
     <script>
 
-        //Проверям подключен ли axios
-        console.log(axios)
+                //Проверям подключен ли axios
+                console.log(axios)
 
-        // Обращаемся по селектору к Form
-        let FormS = document.querySelector('.form-data')
+                // Обращаемся по селектору к Form
+                let FormS = document.querySelector('.form-data')
 
-        // Вызываем прослушивание событий, при нажатии на кнопку
-        // function(e) - вызывает event
+                // Вызываем прослушивание событий, при нажатии на кнопку
+                // function(e) - вызывает event
 
-        FormS.addEventListener('submit', function(e) {
+                FormS.addEventListener('submit', function(e) {
 
-            // e.preventDefault();  - запрещает отпралять данные по action из form
-            e.preventDefault();
+                    // e.preventDefault();  - запрещает отпралять данные по action из form
+                    e.preventDefault();
 
-            // Вызываем FORM в console.
-            let elem = e.target
-            // console.log()
+                    // Вызываем FORM в console.
+                    let elem = e.target
+                    // console.log()
 
-            // Обращаемяся к объекту и получаем из формы имя и телефон
-            let formData = {
-                name: elem.querySelector('[name="user_name"]').value,
-                phone: elem.querySelector('[name="user_phone"]').value,
-                email: elem.querySelector('[name="user_email"]').value
-            }
+                    // Обращаемяся к объекту и получаем из формы имя и телефон
+                    let formData = {
+                        name: elem.querySelector('[name="user_name"]').value,
+                        phone: elem.querySelector('[name="user_phone"]').value,
+                        email: elem.querySelector('[name="user_email"]').value
+                    }
 
-            // console.log(formData)
+                    // console.log(formData)
 
-            axios.post("/mail.php", {
-                    'user_name': formData.name,
-                    'user_phone': formData.phone,
-                    'user_email': formData.email
+                    axios.post("http://localhost/02_projects-js/04_%20Form+Ajax+JS+PHP/mail.php", {
+                            'user_name': formData.name,
+                            'user_phone': formData.phone,
+                            'user_email': formData.email
 
-                })
+                        })
 
-            // Далее обычная обраотка ошибок, если все ок, то .then, иначе .catch
-            // response аналог res
-              .then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
+                    // Далее обычная обраотка ошибок, если все ок, то .then, иначе .catch
+                    // response аналог res
+                      .then(function (response) {
+                        console.log(response);
+                      })
+                      .catch(function (error) {
+                        console.log(error);
+                      });
 
 
-    })
+            })
 
-    </script>
+</script>
 
 </body>
 </html>
