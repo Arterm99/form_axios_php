@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <h1>Отпарвка формы без перезагрузки страницы</h1>
-        <form class="form-data" method="post" action="http://localhost/02_projects-js/04_%20Form+Ajax+JS+PHP/mail.php">
+        <form class="form-data" method="post" action="/mail.php">
             <div class="form-group mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Имя</label>
                 <input type="name" name="user_name" class="form-control" id="exampleFormControlInput1" placeholder="Имя" required>
@@ -113,7 +113,7 @@
 
                     // console.log(formData)
 
-                    axios.post("http://localhost/02_projects-js/04_%20Form+Ajax+JS+PHP/mail.php", {
+                    axios.post("/mail.php", {
                             'user_name': formData.name,
                             'user_phone': formData.phone,
                             'user_email': formData.email
